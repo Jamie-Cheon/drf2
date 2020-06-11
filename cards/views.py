@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework.pagination import CursorPagination
 from rest_framework.permissions import IsAuthenticated
+
 from .models import Card
 from .serializers import CardSerializer, UserSerializer
 from .permissions import IsOwnerOrReadOnly
@@ -19,7 +20,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     permission_classes = [IsAuthenticated,
                           IsOwnerOrReadOnly]
-
 
 
 class CardViewSet(viewsets.ModelViewSet):
